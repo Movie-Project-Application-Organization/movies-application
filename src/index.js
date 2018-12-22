@@ -28,18 +28,23 @@ const htmlRenderTableFrom = (html_element, array_of_movies) => {
     `<div class="${col}">RATING</div>` +
     `<div class="${col}">DELETE</div>` +
     `</div>`;
+
+  const imgBtn = {
+    css : "btn-delete",
+    svg : "img/delete.svg"
+  }
+
   array_of_movies.forEach( movie => {
     html_table += `<div class="row">` +
       `<div class="${col}">${movie.id}</div>` +
       `<div class="${col}">${movie.title}</div>` +
       `<div class="${col}">${movie.rating}</div>` +
-      `<div class="${col}"><img class="btn-delete" src="img/delete.svg"><img></div>` +
+      `<div class="${col}"><img class="${imgBtn.css}" src="${imgBtn.svg}"><img></div>` +
     `</div>`
   });
 
   $(html_element).append(html_table);
 }
-
 
 getMovies()
   .then(movies => {
