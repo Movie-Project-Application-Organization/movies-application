@@ -58,7 +58,17 @@ getMovies()
 
     const table = $("#table-of-movies");
     htmlRenderTableFrom(table, movies);
-
+      $('.btn-delete').click(function(event){
+          const source = event.target;
+          console.log(source);
+          const div = $(source).parent().get(0);
+          const movieRow = $(div).parent().get(0);
+          const id = $(movieRow).children().first().get(0);
+          const idNumber = $(id).text();
+          deleteMovie(idNumber);
+          movieRow.remove();
+      });
   }).catch((error) => {
     console.log(error);
   });
+
