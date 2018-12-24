@@ -31,7 +31,7 @@ const htmlRenderTableFrom = (html_element, array_of_movies) => {
 
   const imgBtn = {
     css : "btn-delete",
-    svg : "img/delete.svg"
+    svg : "img/delete.png"
   };
 
   array_of_movies.forEach( movie => {

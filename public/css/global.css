@@ -131,14 +131,12 @@ nav {
   border-right-color: transparent;
 }
 .btn-delete {
-  /* align-content: center; */
-  width: 36px;
-  height: 36px;
+  width: 25px;
+  height: 25px;
 }
-
 .btn-delete:hover {
-  background-color: #FF9106;
   border-radius: 50%;
+  background-color: red;
   transform: scale(1.05);
 }
 
