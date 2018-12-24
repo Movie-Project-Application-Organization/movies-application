@@ -43,6 +43,13 @@ const htmlRenderTableFrom = (html_element, array_of_movies) => {
     `</div>`
   });
 
+  html_table += `<form class=row>` +
+    `<div class="${col}">Add a movie</div>` +
+    `<div class="${col}"><input type="text" name="movie-title"></div>` +
+    `<div class="${col}"><input type="text" name="movie-rating"></div>` +
+    `<div class="${col}"><input type="submit" value="Add Movie"></div>` +
+  `</form>`
+
   $(html_element).append(html_table);
 };
 
