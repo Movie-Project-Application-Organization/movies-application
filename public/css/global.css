@@ -131,25 +131,18 @@ nav {
   border-right-color: transparent;
 }
 .btn-delete {
-  width: 35px;
-  height: 35px;
+  /* align-content: center; */
+  width: 36px;
+  height: 36px;
 }
+
+.btn-delete:hover {
+  background-color: #FF9106;
+  border-radius: 50%;
+  transform: scale(1.05);
+}
+
 .movieIcon {
   width: 40px;
   height: 40px;
 }
-/* .rotate-45 {
-  transform: rotate(45deg);
-}
-
-.rotate-135 {
-  transform: rotate(135deg);
-}
-
-.rotate-225 {
-  transform: rotate(225deg);
-}
-
-.rotate-315 {
-  transform: rotate(315deg);
-} */
