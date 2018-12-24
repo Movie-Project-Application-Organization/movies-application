@@ -20,7 +20,7 @@ const {
 /**/
 const htmlRenderTableFrom = (html_element, array_of_movies) => {
 
-  const col="column lg-col-25"
+  const col="column lg-col-25 md-col-25 sm-col-25 xs-col-25";
 
   let html_table = `<div class="row">` +
     `<div class="${col}">ID</div>` +
@@ -32,7 +32,7 @@ const htmlRenderTableFrom = (html_element, array_of_movies) => {
   const imgBtn = {
     css : "btn-delete",
     svg : "img/delete.svg"
-  }
+  };
 
   array_of_movies.forEach( movie => {
     html_table += `<div class="row">` +
@@ -44,7 +44,7 @@ const htmlRenderTableFrom = (html_element, array_of_movies) => {
   });
 
   $(html_element).append(html_table);
-}
+};
 
 getMovies()
   .then(movies => {

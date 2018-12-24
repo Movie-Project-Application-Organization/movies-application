@@ -4,7 +4,7 @@
 
 /* CSS applied on elements */
 body {
-  font-family: "Noto Mono";
+  font-family: "Staatliches";
   background-color: #f2f2f2;
   color: #1a1a1a;
 }
@@ -51,7 +51,6 @@ nav {
 .nav-link {
   font-size: 1.5rem;
 }
-
 .nav-link:link {
   color: #4d4d4d;
   text-decoration: none;
