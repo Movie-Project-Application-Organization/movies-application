@@ -28,11 +28,11 @@ const htmlRenderTableFrom = (html_element, array_of_movies) => {
     `<div class="${col}">DELETE</div>` +
     `</div>`;
 
-  array_of_movies.forEach( movie => {
+  array_of_movies.forEach( (movie, index) => {
     html_table += `<div class="row">` +
       `<div class="${col}">${movie.id}</div>` +
-      `<div class="${col}">${movie.title}</div>` +
-      `<div class="${col}">${movie.rating}</div>` +
+      `<div class="${col}" id="title-${index}">${movie.title}</div>` +
+      `<div class="${col}" id="rating-${index}">${movie.rating}</div>` +
       `<div class="${col}"><img class="${imgBtn.css}" src="${imgBtn.svg}"><img></div>` +
     `</div>`
   });
@@ -71,8 +71,6 @@ getMovies()
       const div = $(source).parent().get(0);
       const form = $(div).parent().get(0);
 
-      let movieId = $(form).children().get(0);
-
       let movieTitle = $(form).children().get(1);
       movieTitle = $(movieTitle).children().get(0);
       movieTitle = $(movieTitle).val();
@@ -107,7 +105,26 @@ getMovies()
         `</div>`);
       }
     });
-
+    movies.forEach(movie => {
+        // console.log(movie.rating);
+        // console.log(movie.title);
+        $(movie.title).dblclick(event => {
+            const source = event.target;
+            const div = $(source).parent().get(0);
+            const form = $(div).parent().get(0);
+            console.log(form);
+            // $(form).html(`<div class="${col}"><input type="text" name="movie-title" placeholder="${movie.title}"></div>` +
+            //     `<div id="add-movie" class="${col}"><input type="submit" value="Add Movie"></div>` )
+        });
+        // $(movie.rating).dblclick(event => {
+        //
+        // });
+        // movie.html(`<form class=row>` +
+        //     `<div class="${col}"><input type="text" name="movie-title" placeholder="${movieTitle}"></div>` +
+        //     `<div class="${col}"><input type="text" name="movie-rating" placeholder="${movieRating}"></div>` +
+        //     `<div id="add-movie" class="${col}"><input type="submit" value="Add Movie"></div>` +
+        //     `</form>`)
+    });
   }).catch((error) => {
     console.log(error);
   });
