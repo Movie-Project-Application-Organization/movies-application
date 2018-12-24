@@ -134,6 +134,10 @@ nav {
   width: 35px;
   height: 35px;
 }
+.movieIcon {
+  width: 40px;
+  height: 40px;
+}
 /* .rotate-45 {
   transform: rotate(45deg);
 }
