@@ -1,19 +1,24 @@
 {
   "movies": [
     {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
+      "title": "Star wars: The last jedi",
+      "rating": 4,
+      "id": 1
+    },
+    {
+      "title": "The avengers: endgame",
+      "rating": 5,
       "id": 2
     },
     {
-      "title": "Star Wars: The Empire Strikes Back",
-      "rating": 5,
-      "id": 4
+      "title": "aquaman",
+      "rating": 4,
+      "id": 3
     },
     {
-      "title": "Star Wars: Return of the Jedi",
-      "rating": 4,
-      "id": 5
+      "title": "wonder woman",
+      "rating": 5,
+      "id": 4
     }
   ]
 }

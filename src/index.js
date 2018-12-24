@@ -18,9 +18,14 @@ const {
 // helper functions
 
 /**/
+const col="column lg-col-25 md-col-25 sm-col-25 xs-col-25";
+const imgBtn = {
+    css : "btn-delete",
+    svg : "img/delete.png"
+};
 const htmlRenderTableFrom = (html_element, array_of_movies) => {
 
-  const col="column lg-col-25 md-col-25 sm-col-25 xs-col-25";
+
 
   let html_table = `<div class="row">` +
     `<div class="${col}">ID</div>` +
@@ -29,10 +34,6 @@ const htmlRenderTableFrom = (html_element, array_of_movies) => {
     `<div class="${col}">DELETE</div>` +
     `</div>`;
 
-  const imgBtn = {
-    css : "btn-delete",
-    svg : "img/delete.png"
-  };
 
   array_of_movies.forEach( movie => {
     html_table += `<div class="row">` +
@@ -77,6 +78,8 @@ getMovies()
       const div = $(source).parent().get(0);
       const form = $(div).parent().get(0);
 
+      let movieId = $(form).children().get(0);
+
       let movieTitle = $(form).children().get(1);
       movieTitle = $(movieTitle).children().get(0);
       movieTitle = $(movieTitle).val();
@@ -94,10 +97,20 @@ getMovies()
         alert("Please enter a number between 0 and 5.");
       }
       else {
-        postMovie({title: movieTitle, rating: movieRating});
+          const movieObject = {title: movieTitle, rating: movieRating}
+        postMovie(movieObject)
+            .then(response => {
+                console.log(response[0][0]);
+            });
 
         // TODO: alter html so the movie appears here.
         // How should be go about applying the id?
+          $('').append(`<div class="row">` +
+          `<div class="${col}">${movieId}</div>` +
+          `<div class="${col}">${movieObject.title}</div>` +
+          `<div class="${col}">${movieObject.rating}</div>` +
+          `<div class="${col}"><img class="${imgBtn.css}" src="${imgBtn.svg}"><img></div>` +
+          `</div>`);
       }
     });
 
