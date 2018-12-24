@@ -4,6 +4,16 @@
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Star Wars: The Empire Strikes Back",
+      "rating": 5,
+      "id": 4
+    },
+    {
+      "title": "Star Wars: Return of the Jedi",
+      "rating": 4,
+      "id": 5
     }
   ]
 }

@@ -47,7 +47,7 @@ const htmlRenderTableFrom = (html_element, array_of_movies) => {
     `<div class="${col}">Add a movie</div>` +
     `<div class="${col}"><input type="text" name="movie-title"></div>` +
     `<div class="${col}"><input type="text" name="movie-rating"></div>` +
-    `<div class="${col}"><input type="submit" value="Add Movie"></div>` +
+    `<div id="add-movie" class="${col}"><input type="submit" value="Add Movie"></div>` +
   `</form>`
 
   $(html_element).append(html_table);
@@ -58,17 +58,49 @@ getMovies()
 
     const table = $("#table-of-movies");
     htmlRenderTableFrom(table, movies);
-      $('.btn-delete').click(function(event){
-          const source = event.target;
-          console.log(source);
-          const div = $(source).parent().get(0);
-          const movieRow = $(div).parent().get(0);
-          const id = $(movieRow).children().first().get(0);
-          const idNumber = $(id).text();
-          deleteMovie(idNumber);
-          movieRow.remove();
-      });
+
+    // listener for remove button
+    $('.btn-delete').click(function(event){
+        const source = event.target;
+        const div = $(source).parent().get(0);
+        const movieRow = $(div).parent().get(0);
+        const id = $(movieRow).children().first().get(0);
+        const idNumber = $(id).text();
+        deleteMovie(idNumber);
+        movieRow.remove();
+    });
+
+    // listener for "add movie" button
+    $("#add-movie").click( event => {
+      event.preventDefault();
+      const source = event.target;
+      const div = $(source).parent().get(0);
+      const form = $(div).parent().get(0);
+
+      let movieTitle = $(form).children().get(1);
+      movieTitle = $(movieTitle).children().get(0);
+      movieTitle = $(movieTitle).val();
+
+      let movieRating = $(form).children().get(2);
+      movieRating = $(movieRating).children().get(0);
+      movieRating = $(movieRating).val();
+
+      movieRating = parseInt(movieRating);
+
+      if(isNaN(movieRating)){
+        alert(`Error: typeof(movieRating) = ${typeof(movieRating)}.\nPlease enter a number for the movie rating.`);
+      }
+      else if(movieRating < 0 || movieRating > 5){
+        alert("Please enter a number between 0 and 5.");
+      }
+      else {
+        postMovie({title: movieTitle, rating: movieRating});
+
+        // TODO: alter html so the movie appears here.
+        // How should be go about applying the id?
+      }
+    });
+
   }).catch((error) => {
     console.log(error);
   });
-
