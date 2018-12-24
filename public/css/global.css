@@ -127,7 +127,10 @@ nav {
   border-bottom-color: transparent;
   border-right-color: transparent;
 }
-
+.btn-delete {
+  width: 35px;
+  height: 35px;
+}
 /* .rotate-45 {
   transform: rotate(45deg);
 }
