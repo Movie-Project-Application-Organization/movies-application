@@ -44,7 +44,10 @@ nav {
 /*
     *     *   navigation link classes   *     *     *
 */
-
+.navbar {
+  background-color: #000000;
+  color: white;
+}
 .nav-link {
   font-size: 1.5rem;
 }
