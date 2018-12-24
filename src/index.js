@@ -3,10 +3,6 @@
  */
 const $ = require('jquery');
 
-// $(document).ready(function(){
-//   var remove = $('#loading_wrap').remove();
-//   setTimeout(remove, 5000);
-// });
 const {
   getMovies,
   patchMovie,
@@ -15,17 +11,15 @@ const {
   deleteMovie
 } = require('./api.js');
 
-// helper functions
-
-/**/
 const col="column lg-col-25 md-col-25 sm-col-25 xs-col-25";
+
 const imgBtn = {
     css : "btn-delete",
     svg : "img/delete.png"
 };
+
+// helper functions
 const htmlRenderTableFrom = (html_element, array_of_movies) => {
-
-
 
   let html_table = `<div class="row">` +
     `<div class="${col}">ID</div>` +
@@ -33,7 +27,6 @@ const htmlRenderTableFrom = (html_element, array_of_movies) => {
     `<div class="${col}">RATING</div>` +
     `<div class="${col}">DELETE</div>` +
     `</div>`;
-
 
   array_of_movies.forEach( movie => {
     html_table += `<div class="row">` +
@@ -97,20 +90,21 @@ getMovies()
         alert("Please enter a number between 0 and 5.");
       }
       else {
-          const movieObject = {title: movieTitle, rating: movieRating}
-        postMovie(movieObject)
-            .then(response => {
-                console.log(response[0][0]);
-            });
+        const movieObject = {title: movieTitle, rating: movieRating}
+        postMovie(movieObject);
 
-        // TODO: alter html so the movie appears here.
-        // How should be go about applying the id?
-          $('').append(`<div class="row">` +
-          `<div class="${col}">${movieId}</div>` +
+        const len = $(table).length;
+        const lastRow = $(table).children().get(len - 3);
+        let id = $(lastRow).children().get(0);
+        id = $(id).html();
+        id++;
+
+        $(lastRow).after(`<div class="row">` +
+          `<div class="${col}">${id}</div>` +
           `<div class="${col}">${movieObject.title}</div>` +
           `<div class="${col}">${movieObject.rating}</div>` +
           `<div class="${col}"><img class="${imgBtn.css}" src="${imgBtn.svg}"><img></div>` +
-          `</div>`);
+        `</div>`);
       }
     });
 
