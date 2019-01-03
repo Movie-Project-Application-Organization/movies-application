@@ -105,31 +105,14 @@ getMovies()
         `</div>`);
       }
     });
-    // movies.forEach(movie => {
-    //     console.log(movie.rating);
-    //     console.log(movie.title);
-    //     $(movie.title).dblclick(event => {
-    //         const source = event.target;
-    //         const div = $(source).parent().get(0);
-    //         const form = $(div).parent().get(0);
-    //         console.log(form);
-            // $(form).html(`<div class="${col}"><input type="text" name="movie-title" placeholder="${movie.title}"></div>` +
-            //     `<div id="add-movie" class="${col}"><input type="submit" value="Add Movie"></div>` )
-        // });
-        // $(movie.rating).dblclick(event => {
-        //
-        // });
-        // movie.html(`<form class=row>` +
-        //     `<div class="${col}"><input type="text" name="movie-title" placeholder="${movieTitle}"></div>` +
-        //     `<div class="${col}"><input type="text" name="movie-rating" placeholder="${movieRating}"></div>` +
-        //     `<div id="add-movie" class="${col}"><input type="submit" value="Add Movie"></div>` +
-        //     `</form>`)
-    // });
-    $('div.row div.column').each(function(index) {
+    $('div.row').each(function(index) {
+      console.log(this);
       $(this).dblclick(event => {
         const source = event.target;
         const div = $(source).get(0);
+        const text = $(div).text();
         console.log(div);
+        $(div).html(`<form><div class="${col}"><input type="text" name="movie-title" placeholder="${text}"></div></form>`)
       })
     });
   }).catch((error) => {
