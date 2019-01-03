@@ -106,23 +106,74 @@ getMovies()
       }
     });
     //edit on dblclick
-    $('div.row').each(function() {
-      $(this).dblclick(event => {
-        event.preventDefault();
-        const source = event.target;
-        const div = $(source).get(0);
-        const placeholder = $(div).text();
-        let newDiv = $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
-        $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
-        let inputValue = $(newDiv).children().children().get(0);
-        $(newDiv).keypress(event => {
-          const source = event.target;
-          const div = $(source).get(0);
-          const val = $(div).val();
-          inputValue = val;
+    // $('div.row').each(function() {
+    //   $(this).dblclick(event => {
+    //     event.preventDefault();
+    //     const source = event.target;
+    //     const div = $(source).get(0);
+    //     const placeholder = $(div).text();
+    //     console.log(div);
+    //     let newDiv = $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
+    //     let newInputValue = '';
+    //
+    //     $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}">${newInputValue}</form>`)
+    //
+    //     let inputValue;
+    //
+    //     $(newDiv).keypress(event => {
+    //       const source = event.target;
+    //       const div = $(source).get(0);
+    //       const val = $(div).val();
+    //       inputValue = val;
+    //       console.log(inputValue);
+    //     })
+    //     const div2 = $(source).parent().get(0);
+    //     const form = $(div2).parent().get(0);
+    //     console.log(form);
+    //     if(inputValue){
+    //       newInputValue = inputValue;
+    //     }
+    //   })
+    // });
+    movies.forEach(movie => {
+      $(`div.column#rating-${movie.id - 1}`).each(function(){
+        $(this).dblclick(event => {
+            event.preventDefault();
+            const source = event.target;
+            const div = $(source).get(0);
+            const placeholder = $(div).text();
+            let newDiv = $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
+
+            let newInputValue = '';
+            $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}">${newInputValue}</form>`)
+            console.log(div);
+            let inputValue;
+
+            $(newDiv).keypress(event => {
+              const source = event.target;
+              const div = $(source).get(0);
+              const val = $(div).val();
+              inputValue = val;
+              console.log(inputValue);
+            })
+              const div2 = $(source).parent().get(0);
+              const form = $(div2).parent().get(0);
+              console.log(form);
+            if(inputValue){
+              newInputValue = inputValue;
+            }
+            console.log(this);
         })
       })
-    });
+      $(`div.column#title-${movie.id - 1}`).each(function(){
+        $(this).dblclick(event => {
+            event.preventDefault();
+            const source = event.target;
+            const div = $(source).get(0);
+            console.log(div);
+        })
+      })
+    })
   }).catch((error) => {
     console.log(error);
   });
