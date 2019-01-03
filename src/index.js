@@ -105,14 +105,22 @@ getMovies()
         `</div>`);
       }
     });
-    $('div.row').each(function(index) {
-      console.log(this);
+    //edit on dblclick
+    $('div.row').each(function() {
       $(this).dblclick(event => {
+        event.preventDefault();
         const source = event.target;
         const div = $(source).get(0);
-        const text = $(div).text();
-        console.log(div);
-        $(div).html(`<form><div class="${col}"><input type="text" name="movie-title" placeholder="${text}"></div></form>`)
+        const placeholder = $(div).text();
+        let newDiv = $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
+        $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
+        let inputValue = $(newDiv).children().children().get(0);
+        $(newDiv).keypress(event => {
+          const source = event.target;
+          const div = $(source).get(0);
+          const val = $(div).val();
+          inputValue = val;
+        })
       })
     });
   }).catch((error) => {
