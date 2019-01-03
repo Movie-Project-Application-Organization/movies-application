@@ -28,7 +28,7 @@ const htmlRenderTableFrom = (html_element, array_of_movies) => {
     `<div class="${col}">DELETE</div>` +
     `</div>`;
 
-  array_of_movies.forEach( (movie, index) => {
+  array_of_movies.forEach((movie, index) => {
     html_table += `<div class="row">` +
       `<div class="${col}">${movie.id}</div>` +
       `<div class="${col}" id="title-${index}">${movie.title}</div>` +
@@ -105,17 +105,17 @@ getMovies()
         `</div>`);
       }
     });
-    movies.forEach(movie => {
-        // console.log(movie.rating);
-        // console.log(movie.title);
-        $(movie.title).dblclick(event => {
-            const source = event.target;
-            const div = $(source).parent().get(0);
-            const form = $(div).parent().get(0);
-            console.log(form);
+    // movies.forEach(movie => {
+    //     console.log(movie.rating);
+    //     console.log(movie.title);
+    //     $(movie.title).dblclick(event => {
+    //         const source = event.target;
+    //         const div = $(source).parent().get(0);
+    //         const form = $(div).parent().get(0);
+    //         console.log(form);
             // $(form).html(`<div class="${col}"><input type="text" name="movie-title" placeholder="${movie.title}"></div>` +
             //     `<div id="add-movie" class="${col}"><input type="submit" value="Add Movie"></div>` )
-        });
+        // });
         // $(movie.rating).dblclick(event => {
         //
         // });
@@ -124,6 +124,13 @@ getMovies()
         //     `<div class="${col}"><input type="text" name="movie-rating" placeholder="${movieRating}"></div>` +
         //     `<div id="add-movie" class="${col}"><input type="submit" value="Add Movie"></div>` +
         //     `</form>`)
+    // });
+    $('div.row div.column').each(function(index) {
+      $(this).dblclick(event => {
+        const source = event.target;
+        const div = $(source).get(0);
+        console.log(div);
+      })
     });
   }).catch((error) => {
     console.log(error);
