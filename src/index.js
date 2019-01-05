@@ -142,19 +142,17 @@ getMovies()
             const source = event.target;
             const div = $(source).get(0);
             const placeholder = $(div).text();
-            let newDiv = $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
+            let formInput = $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
 
-            let newInputValue = '';
             $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
-            let inputValue = '';
+            let inputValue;
 
-            $(newDiv).keyup(event => {
+            $(formInput).keyup(event => {
               const source = event.target;
               const div = $(source).get(0);
               const val = $(div).val();
               inputValue = val;
-              movie.rating = inputValue;
-              console.log(movie.rating)
+
               if(isNaN(inputValue)){
                 alert(`Error: typeof(movieRating) = ${typeof(inputValue)}.\nPlease enter a number for the movie rating.`);
               }
@@ -165,8 +163,6 @@ getMovies()
                 const movieRating = {rating: inputValue};
                 $(div).html(`<div class="${col}">${movieRating}</div>`);
                 patchMovie(movieRating, movie.id);
-                // console.log(movieRating)
-                // console.log(movie.id)
               }
             })
         })
@@ -178,8 +174,21 @@ getMovies()
             const div = $(source).get(0);
             const placeholder = $(div).text();
 
+            let formInput = $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
+
             $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
-            console.log(div);
+
+            $(formInput).keyup(event => {
+              let inputValue;
+              const source = event.target;
+              const div = $(source).get(0);
+              const val = $(div).val();
+              inputValue = val;
+              console.log(inputValue)
+              const movieTitle = {title: inputValue};
+              $(div).html(`<div class="${col}">${movieTitle}</div>`);
+              patchMovie(movieTitle, movie.id);
+              })
         })
       })
     })
