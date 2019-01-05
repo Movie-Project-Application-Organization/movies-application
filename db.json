@@ -1,8 +1,8 @@
 {
   "movies": [
     {
-      "title": "Star wars: The last jedi",
-      "rating": "2",
+      "title": "Star wars the last jedi",
+      "rating": "4",
       "id": 1
     },
     {
@@ -49,6 +49,11 @@
       "title": "bohemian rhapsody",
       "rating": 4,
       "id": 10
+    },
+    {
+      "title": "halloween",
+      "rating": 3,
+      "id": 11
     }
   ]
 }

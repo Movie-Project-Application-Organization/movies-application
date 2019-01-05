@@ -82,7 +82,7 @@ getMovies()
       movieRating = parseInt(movieRating);
 
       if(isNaN(movieRating)){
-        alert(`Error: typeof(movieRating) = ${typeof(movieRating)}.\nPlease enter a number for the movie rating.`);
+        alert('Please enter a number for the movie rating.');
       }
       else if(movieRating < 0 || movieRating > 5){
         alert("Please enter a number between 0 and 5.");
@@ -105,37 +105,9 @@ getMovies()
         `</div>`);
       }
     });
-    //edit on dblclick
-    // $('div.row').each(function() {
-    //   $(this).dblclick(event => {
-    //     event.preventDefault();
-    //     const source = event.target;
-    //     const div = $(source).get(0);
-    //     const placeholder = $(div).text();
-    //     console.log(div);
-    //     let newDiv = $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
-    //     let newInputValue = '';
-    //
-    //     $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}">${newInputValue}</form>`)
-    //
-    //     let inputValue;
-    //
-    //     $(newDiv).keypress(event => {
-    //       const source = event.target;
-    //       const div = $(source).get(0);
-    //       const val = $(div).val();
-    //       inputValue = val;
-    //       console.log(inputValue);
-    //     })
-    //     const div2 = $(source).parent().get(0);
-    //     const form = $(div2).parent().get(0);
-    //     console.log(form);
-    //     if(inputValue){
-    //       newInputValue = inputValue;
-    //     }
-    //   })
-    // });
+    //edit functionality
     movies.forEach(movie => {
+      //edit on double click for movie rating
       $(`div.column#rating-${movie.id - 1}`).each(function(){
         $(this).dblclick(event => {
             event.preventDefault();
@@ -154,7 +126,7 @@ getMovies()
               inputValue = val;
 
               if(isNaN(inputValue)){
-                alert(`Error: typeof(movieRating) = ${typeof(inputValue)}.\nPlease enter a number for the movie rating.`);
+                alert(`Please enter a number for the movie rating.`);
               }
               else if(inputValue < 0 || inputValue > 5){
                 alert("Please enter a number between 0 and 5.");
@@ -167,6 +139,7 @@ getMovies()
             })
         })
       })
+      //edit on double click for movie title
       $(`div.column#title-${movie.id - 1}`).each(function(){
         $(this).dblclick(event => {
             event.preventDefault();
@@ -178,7 +151,7 @@ getMovies()
 
             $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
 
-            $(formInput).keyup(event => {
+            $(formInput).keydown(event => {
               let inputValue;
               const source = event.target;
               const div = $(source).get(0);
