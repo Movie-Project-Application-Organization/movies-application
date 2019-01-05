@@ -145,24 +145,30 @@ getMovies()
             let newDiv = $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
 
             let newInputValue = '';
-            $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}">${newInputValue}</form>`)
-            console.log(div);
-            let inputValue;
+            $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
+            let inputValue = '';
 
-            $(newDiv).keypress(event => {
+            $(newDiv).keyup(event => {
               const source = event.target;
               const div = $(source).get(0);
               const val = $(div).val();
               inputValue = val;
-              console.log(inputValue);
+              movie.rating = inputValue;
+              console.log(movie.rating)
+              if(isNaN(inputValue)){
+                alert(`Error: typeof(movieRating) = ${typeof(inputValue)}.\nPlease enter a number for the movie rating.`);
+              }
+              else if(inputValue < 0 || inputValue > 5){
+                alert("Please enter a number between 0 and 5.");
+              }
+              else {
+                const movieRating = {rating: inputValue};
+                $(div).html(`<div class="${col}">${movieRating}</div>`);
+                patchMovie(movieRating, movie.id);
+                // console.log(movieRating)
+                // console.log(movie.id)
+              }
             })
-              const div2 = $(source).parent().get(0);
-              const form = $(div2).parent().get(0);
-              console.log(form);
-            if(inputValue){
-              newInputValue = inputValue;
-            }
-            console.log(this);
         })
       })
       $(`div.column#title-${movie.id - 1}`).each(function(){
@@ -170,6 +176,9 @@ getMovies()
             event.preventDefault();
             const source = event.target;
             const div = $(source).get(0);
+            const placeholder = $(div).text();
+
+            $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
             console.log(div);
         })
       })

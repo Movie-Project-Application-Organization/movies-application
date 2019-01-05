@@ -2,7 +2,7 @@
   "movies": [
     {
       "title": "Star wars: The last jedi",
-      "rating": 4,
+      "rating": "3",
       "id": 1
     },
     {
@@ -49,11 +49,6 @@
       "title": "Bohemian rhapsody",
       "rating": 4,
       "id": 10
-    },
-    {
-      "title": "creed ii",
-      "rating": 4,
-      "id": 11
     }
   ]
 }
