@@ -5,12 +5,9 @@
 /* CSS applied on elements */
 body {
   font-family: "Staatliches";
-  background-color: #f2f2f2;
   color: #1a1a1a;
-}
-
-nav {
-  font-variant: small-caps;
+  font-size: 20px;
+  margin: 0px;
 }
 
 /* CSS applied on ids */
@@ -45,8 +42,11 @@ nav {
     *     *   navigation link classes   *     *     *
 */
 .navbar {
-  background-color: #000000;
+  background-color: black;
   color: white;
+  display: flex;
+  justify-content: center;
+  height: 56px;
 }
 .nav-link {
   font-size: 1.5rem;
@@ -137,10 +137,133 @@ nav {
 .btn-delete:hover {
   border-radius: 50%;
   background-color: red;
-  transform: scale(1.05);
+  -webkit-animation: spin 3s;
+  -moz-animation: spin 3s;
+  -o-animation: spin 3s;
+  animation:  spin 3s;
+}
+
+/* Color Animation with @keyframes*/
+@-webkit-keyframes colorAnimation {
+  0%   { opacity: 0;}
+  5%  { color: white; }
+  10%  { font-family: 'Squada One' }
+  15%  { color: purple}
+  20%  { color: blue; }
+  25%  { font-family: 'Share' }
+  30%  { color: green; }
+  35%  { font-family: 'Forum'}
+  40%  { color: yellow; }
+  45%  { font-family: 'GFS Didot', serif; }
+  50%  { color: silver; }
+  60%  { color: gold; }
+  65%  { font-family: 'Changa One' }
+  70%  { color: red; }
+  75%  { font-family: 'GFS Didot', serif; }
+  80%  { color: cyan; }
+  85%  { font-family: 'Bowlby One SC' }
+  90%  { color: white; }
+  95%  { font-family: 'Staatliches' }
+  100% { opacity: 1; }
+}
+@-moz-keyframes colorAnimation {
+  0%   { opacity: 0;}
+  5%  { color: white; }
+  10%  { font-family: 'Squada One' }
+  15%  { color: purple}
+  20%  { color: blue; }
+  25%  { font-family: 'Share' }
+  30%  { color: green; }
+  35%  { font-family: 'Forum'}
+  40%  { color: yellow; }
+  45%  { font-family: 'GFS Didot', serif; }
+  50%  { color: silver; }
+  60%  { color: gold; }
+  65%  { font-family: 'Changa One' }
+  70%  { color: red; }
+  75%  { font-family: 'GFS Didot', serif; }
+  80%  { color: cyan; }
+  85%  { font-family: 'Bowlby One SC' }
+  90%  { color: white; }
+  95%  { font-family: 'Staatliches' }
+  100% { opacity: 1; }
+}
+@-o-keyframes colorAnimation {
+  0%   { opacity: 0;}
+  5%  { color: white; }
+  10%  { font-family: 'Squada One' }
+  15%  { color: purple}
+  20%  { color: blue; }
+  25%  { font-family: 'Share' }
+  30%  { color: green; }
+  35%  { font-family: 'Forum'}
+  40%  { color: yellow; }
+  45%  { font-family: 'GFS Didot', serif; }
+  50%  { color: silver; }
+  60%  { color: gold; }
+  65%  { font-family: 'Changa One' }
+  70%  { color: red; }
+  75%  { font-family: 'GFS Didot', serif; }
+  80%  { color: cyan; }
+  85%  { font-family: 'Bowlby One SC' }
+  90%  { color: white; }
+  95%  { font-family: 'Staatliches' }
+  100% { opacity: 1; }
+}
+@keyframes colorAnimation {
+  0%   { opacity: 0;}
+  5%  { color: white; }
+  10%  { font-family: 'Squada One' }
+  15%  { color: purple}
+  20%  { color: blue; }
+  25%  { font-family: 'Share' }
+  30%  { color: green; }
+  35%  { font-family: 'Forum'}
+  40%  { color: yellow; }
+  45%  { font-family: 'GFS Didot', serif; }
+  50%  { color: silver; }
+  60%  { color: gold; }
+  65%  { font-family: 'Changa One' }
+  70%  { color: red; }
+  75%  { font-family: 'GFS Didot', serif; }
+  80%  { color: cyan; }
+  85%  { font-family: 'Bowlby One SC' }
+  90%  { color: white; }
+  95%  { font-family: 'Staatliches' }
+  100% { opacity: 1; }
+}
+
+h2, body{
+  -webkit-animation: colorAnimation 3s;
+  -moz-animation: colorAnimation 3s;
+  -o-animation: colorAnimation 3s;
+  animation:  colorAnimation 3s;
+}
+/*
+  spin animation
+*/
+@-webkit-keyframes spin {
+  0%   { transform: rotate(0deg);}
+  100% { transform: rotate(359.9deg);}
+}
+@-moz-keyframes spin {
+  0%   { transform: rotate(0deg);}
+  100% { transform: rotate(359.9deg);}
+}
+@-o-keyframes spin {
+  0%   { transform: rotate(0deg);}
+  100% { transform: rotate(359.9deg);}
+}
+@keyframes spin {
+  0%   { transform: rotate(0deg);}
+  100% { transform: rotate(359.9deg);}
 }
 
 .movieIcon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 5s infinite;
+  -moz-animation: spin 5s infinite;
+  -o-animation: spin 5s infinite;
+  animation:  spin 5s infinite;
 }

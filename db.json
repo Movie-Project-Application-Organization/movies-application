@@ -1,12 +1,12 @@
 {
   "movies": [
     {
-      "title": "Star wars the last jedi",
+      "title": "Star wars",
       "rating": "4",
       "id": 1
     },
     {
-      "title": "The avengers: endgame",
+      "title": "the avengers: endgame",
       "rating": 5,
       "id": 2
     },
@@ -36,7 +36,7 @@
       "id": 7
     },
     {
-      "title": "Spiderman: Into the Spidervers",
+      "title": "Spiderman: into the spiderverse",
       "rating": 5,
       "id": 8
     },
@@ -52,8 +52,13 @@
     },
     {
       "title": "halloween",
-      "rating": 3,
+      "rating": "4",
       "id": 11
+    },
+    {
+      "title": "bird box",
+      "rating": 4,
+      "id": 12
     }
   ]
 }
