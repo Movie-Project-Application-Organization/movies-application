@@ -1,8 +1,8 @@
 {
   "movies": [
     {
-      "title": "Star wars",
-      "rating": "4",
+      "title": "Star wars the last jedi",
+      "rating": "3",
       "id": 1
     },
     {
@@ -11,7 +11,7 @@
       "id": 2
     },
     {
-      "title": "aquaman",
+      "title": "harry potter and the deathly hallows",
       "rating": 4,
       "id": 3
     },
@@ -56,9 +56,24 @@
       "id": 11
     },
     {
-      "title": "bird box",
-      "rating": 4,
+      "title": "the shawshank redemption",
+      "rating": 5,
       "id": 12
+    },
+    {
+      "title": "pulp fiction",
+      "rating": 5,
+      "id": 13
+    },
+    {
+      "title": "the dark knight",
+      "rating": 5,
+      "id": 14
+    },
+    {
+      "title": "inception",
+      "rating": 5,
+      "id": 15
     }
   ]
 }
