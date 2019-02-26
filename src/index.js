@@ -42,7 +42,7 @@ const htmlRenderTableFrom = (html_element, array_of_movies) => {
     `<div class="${col}"><input type="text" name="movie-title"></div>` +
     `<div class="${col}"><input type="text" name="movie-rating"></div>` +
     `<div id="add-movie" class="${col}"><input type="submit" value="Add Movie"></div>` +
-  `</form>`
+  `</form>`;
 
   $(html_element).append(html_table);
 };
@@ -114,7 +114,7 @@ getMovies()
             const source = event.target;
             const div = $(source).get(0);
             const placeholder = $(div).text();
-            let formInput = $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`)
+            let formInput = $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`);
 
             $(div).html(`<form><input type="text" name="${placeholder}" placeholder="${placeholder}"></form>`);
             let inputValue;

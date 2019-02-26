@@ -1,11 +1,6 @@
 {
   "movies": [
     {
-      "title": "Star wars the last jedi",
-      "rating": "3",
-      "id": 1
-    },
-    {
       "title": "the avengers: endgame",
       "rating": 5,
       "id": 2
@@ -59,21 +54,6 @@
       "title": "the shawshank redemption",
       "rating": 5,
       "id": 12
-    },
-    {
-      "title": "pulp fiction",
-      "rating": 5,
-      "id": 13
-    },
-    {
-      "title": "the dark knight",
-      "rating": 5,
-      "id": 14
-    },
-    {
-      "title": "inception",
-      "rating": 5,
-      "id": 15
     }
   ]
 }
